@@ -1,14 +1,18 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
 
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
 const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
 // MongoDB Connection Logic (Reuse connection if it exists)
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://shefinsalim8848_db_user:ubs@cluster0.dszqrzx.mongodb.net/?appName=cluster0';
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+  console.warn("MONGODB_URI is not defined in environment variables.");
+}
 
 let isConnected = false;
 
@@ -24,22 +28,23 @@ const connectDB = async () => {
 };
 
 // Define Schemas
-const PostSchema = new mongoose.Schema({ 
-  title: String, 
-  content: String, 
-  date: String, 
-  image: String, 
-  excerpt: String, 
-  comments: { type: Array, default: [] } 
+const PostSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+  date: String,
+  image: String,
+  excerpt: String,
+  comments: { type: Array, default: [] }
 });
 
-const MessageSchema = new mongoose.Schema({ 
-  name: String, 
-  email: String, 
-  message: String, 
-  date: String 
+const MessageSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String,
+  date: String
 });
 
+// Prevent model overwrite in serverless environment
 const Post = mongoose.models.Post || mongoose.model('Post', PostSchema);
 const Message = mongoose.models.Message || mongoose.model('Message', MessageSchema);
 
@@ -52,7 +57,7 @@ app.use(async (req, res, next) => {
 // Routes
 app.get('/api/posts', async (req, res) => {
   try {
-    const posts = await Post.find().sort({_id: -1});
+    const posts = await Post.find().sort({ _id: -1 });
     res.json(posts);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -81,7 +86,7 @@ app.delete('/api/posts/:id', async (req, res) => {
 app.post('/api/messages', async (req, res) => {
   try {
     const msg = new Message({
-      ...req.body, 
+      ...req.body,
       date: new Date().toLocaleString()
     });
     await msg.save();
@@ -93,7 +98,7 @@ app.post('/api/messages', async (req, res) => {
 
 app.get('/api/messages', async (req, res) => {
   try {
-    const messages = await Message.find().sort({_id: -1});
+    const messages = await Message.find().sort({ _id: -1 });
     res.json(messages);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -119,4 +124,4 @@ app.post('/api/auth/login', (req, res) => {
   }
 });
 
-module.exports = app;
+export default app;
