@@ -4,11 +4,11 @@ export const SITE_STRINGS = {
   owner: "MOHAMMED SHEFIN",
   footerCopy: "ALL RIGHTS RESERVED",
   email: "hello@shfn.dev",
-  twitterUrl: "#",
-  githubUrl: "#",
-  linkedinUrl: "#",
-  instagramUrl: "#",
-  location: "Remote",
+  twitterUrl: "https://x.com/xshefinx",
+  githubUrl: "https://github.com/shefin-salim",
+  linkedinUrl: "https://www.linkedin.com/in/mohammed-shefin-12b02a316/",
+  instagramUrl: "https://www.instagram.com/shfn_slm/",
+  location: "KOLLAM, KERALA",
   status: "Available"
 };
 
@@ -21,15 +21,15 @@ export const NAVIGATION = [
 
 export const HOME_STRINGS = {
   loadingName: "SHEFIN",
-  loadingLabel: "System Active",
-  badge: "Portfolio / 2025",
+  loadingLabel: "WELCOME",
+  badge: "Portfolio",
   heroTitlePart1: "Hello, I'm",
   heroTitlePart2: "Mohammed",
   heroTitlePart3: "Shefin",
-  intro: "Mohammed Shefin is a developer and designer from India. He builds clean digital products that focus on content, speed, and great typography.",
+  intro: "I am a developer who loves creating new things, building ideas, and turning concepts into reality..",
   blogButton: "Read the blog",
   aboutButton: "More about me",
-  archiveHeading: "Latest Archives",
+  archiveHeading: "Latest Blogs",
   browseAll: "Browse All Posts"
 };
 
@@ -49,22 +49,22 @@ export const BLOG_STRINGS = {
   placeholderMessage: "What's on your mind?",
   postComment: "Post comment",
   posting: "Posting...",
-  noImagePlaceholder: "NO_IMG // ARCHIVE"
+  noImagePlaceholder: "NO_IMG"
 };
 
 export const ABOUT_STRINGS = {
   title: "About Me",
   bioParagraph1: "I am Mohammed Shefin. I design and build websites that are easy to look at and easy to use. I believe good design should be clean and honest.",
-  bioParagraph2: "I love working with both code and design. I find my inspiration in the clean layouts of 90s magazines and the simple look of early websites. I focus on making things work well while keeping them looking great.",
-  portraitLabel: "Portait / Ref. 2024",
+  bioParagraph2: "I love building different chatbots for Telegram, Discord, and other platforms, helping automate tasks, reply to users, connect with services, and make chats faster, easier, and more useful for communities and teams.",
+  portraitLabel: "Portait of Myself // 2025",
   rulesHeading: "My Rules",
   rules: [
-    "Simple is better",
-    "Design with structure",
-    "Content always first"
+    "Frontend: React",
+    "Backend: Node.js, Express",
+    "Bots: python-telegram-bot, Telethon"
   ],
    whatIDoHeading: "What I do",
-  whatIDoContent: "I'm currently working on projects that change how we use the web. When I'm not coding, I'm usually looking at fonts or reading about classic print design."
+  whatIDoContent: "I’m working on projects that use AI bots to automate everyday tasks and improve efficiency."
 };
 
 export const CONTACT_STRINGS = {
@@ -81,8 +81,8 @@ export const CONTACT_STRINGS = {
   formMessage: "Message",
   formSend: "Send Message",
   formSending: "Sending...",
-  successMsg: "Message transmitted successfully.",
-  errorMsg: "Communication error. Please try again."
+  successMsg: "Message send successfully.",
+  errorMsg: "Error. Please try again."
 };
 
 export const ADMIN_STRINGS = {
@@ -91,14 +91,14 @@ export const ADMIN_STRINGS = {
   passwordPlaceholder: "Security Key...",
   loginButton: "Initialize Session",
   loginFailed: "Access Denied. Invalid security key.",
-  consoleHeading: "CONTROL CONSOLE",
+  consoleHeading: "ADMIN PANEL",
   tabPosts: "Archives",
-  tabMessages: "Transmissions",
-  newEntry: "New Archive Entry",
+  tabMessages: "Enquiry",
+  newEntry: "New Blog Entry",
   uploadImage: "Upload Reference Image",
   saveButton: "Secure to Cloud",
   discardButton: "Discard Changes",
   selectEntry: "Select an entry to begin editing",
-  postSecured: "Entry secured to cloud archives.",
-  msgDeleted: "Transmission purged from system.",
+  postSecured: "Entry saved to cloud archives.",
+  msgDeleted: "Message deleted successfully.",
 };
