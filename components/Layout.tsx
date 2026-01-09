@@ -59,7 +59,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </main>
 
         <footer className="py-8 border-t border-[#EDEDED]/20 flex flex-col sm:flex-row justify-between text-[9px] font-bold tracking-[0.2em] uppercase gap-6 text-[#EDEDED]">
-          <div>&copy; 2024 {SITE_STRINGS.name} / {SITE_STRINGS.footerCopy}</div>
+          <div>&copy; 2025 {SITE_STRINGS.name} / {SITE_STRINGS.footerCopy}</div>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             <Link to="/admin" className="hover:text-[#00FF66] transition-colors">ADMIN</Link>
             <a href={SITE_STRINGS.linkedinUrl} className="hover:text-[#00FF66] transition-colors" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
