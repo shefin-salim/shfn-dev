@@ -127,8 +127,11 @@ app.delete('/api/messages/:id', async (req, res) => {
 
 app.post('/api/auth/login', (req, res) => {
   const { username, password } = req.body;
-  // Default is admin/admin. For production, use better auth.
-  if (username === 'admin' && password === 'admin') {
+
+  const adminUser = process.env.ADMIN_USERNAME || 'admin';
+  const adminPass = process.env.ADMIN_PASSWORD || 'admin';
+
+  if (username === adminUser && password === adminPass) {
     res.json({ token: 'secure_session_token_' + Date.now() });
   } else {
     res.status(401).json({ error: 'Unauthorized' });
