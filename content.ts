@@ -57,7 +57,7 @@ export const ABOUT_STRINGS = {
   bioParagraph1: "I am Mohammed Shefin. I design and build websites that are easy to look at and easy to use. I believe good design should be clean and honest.",
   bioParagraph2: "I love building different chatbots for Telegram, Discord, and other platforms, helping automate tasks, reply to users, connect with services, and make chats faster, easier, and more useful for communities and teams.",
   portraitLabel: "Portait of Myself // 2025",
-  rulesHeading: "My Rules",
+  rulesHeading: "MY STACKS",
   rules: [
     "Frontend: React",
     "Backend: Node.js, Express",
