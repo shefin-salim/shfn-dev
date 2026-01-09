@@ -3,7 +3,7 @@ export const SITE_STRINGS = {
   name: "SHFN.DEV",
   owner: "MOHAMMED SHEFIN",
   footerCopy: "ALL RIGHTS RESERVED",
-  email: "hello@shfn.dev",
+  email: "shefinsalim@8848@gmail.com",
   twitterUrl: "https://x.com/xshefinx",
   githubUrl: "https://github.com/shefin-salim",
   linkedinUrl: "https://www.linkedin.com/in/mohammed-shefin-12b02a316/",
