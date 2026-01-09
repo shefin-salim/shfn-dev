@@ -70,6 +70,17 @@ app.post('/api/posts', async (req, res) => {
     await post.save();
     res.json(post);
   } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/posts/:id', async (req, res) => {
+  try {
+    const post = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(post);
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 });
