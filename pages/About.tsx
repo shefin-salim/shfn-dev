@@ -22,7 +22,7 @@ const About: React.FC = () => {
           <div className="md:col-span-5 space-y-8">
             <div className="border border-[#EDEDED]/10 p-2 rounded-2xl bg-[#EDEDED]/5 overflow-hidden group">
               <img 
-                src="https://i.ibb.co/RLL1yYn/photo-2026-01-07-11-14-03.jpg" 
+                src="https://i.ibb.co/0VsTScJm/photo-2026-01-07-11-14-03.jpg" 
                 alt="Mohammed Shefin" 
                 className="w-full h-auto rounded-xl grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
               />
