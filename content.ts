@@ -15,7 +15,7 @@ export const SITE_STRINGS = {
 export const NAVIGATION = [
   { label: 'HOME', path: '/' },
   { label: 'BLOG', path: '/blog' },
-  { label: 'ABOUT', path: '/about' },
+  { label: 'PORTFOLIO', path: '/portfolio' },
   { label: 'CONTACT', path: '/contact' },
 ];
 
@@ -28,7 +28,7 @@ export const HOME_STRINGS = {
   heroTitlePart3: "Shefin",
   intro: "I am a developer who loves creating new things, building ideas, and turning concepts into reality..",
   blogButton: "Read the blog",
-  aboutButton: "More about me",
+  aboutButton: "View portfolio",
   archiveHeading: "Latest Blogs",
   browseAll: "Browse All Posts"
 };
@@ -52,19 +52,11 @@ export const BLOG_STRINGS = {
   noImagePlaceholder: "NO_IMG"
 };
 
-export const ABOUT_STRINGS = {
-  title: "About Me",
-  bioParagraph1: "I am Mohammed Shefin. I design and build websites that are easy to look at and easy to use. I believe good design should be clean and honest.",
-  bioParagraph2: "I love building different chatbots for Telegram, Discord, and other platforms, helping automate tasks, reply to users, connect with services, and make chats faster, easier, and more useful for communities and teams.",
-  portraitLabel: "Portait of Myself // 2025",
-  rulesHeading: "MY STACKS",
-  rules: [
-    "Frontend: React",
-    "Backend: Node.js, Express",
-    "Bots: python-telegram-bot, Telethon"
-  ],
-   whatIDoHeading: "What I do",
-  whatIDoContent: "I’m working on projects that use AI bots to automate everyday tasks and improve efficiency."
+export const PORTFOLIO_STRINGS = {
+  title: "Portfolio",
+  subtitle: "Here are some of the projects, ideas, and experiments I've been working on.",
+  viewProject: "Visit Link",
+  techStackHeading: "TECH STACK",
 };
 
 export const CONTACT_STRINGS = {
@@ -93,12 +85,15 @@ export const ADMIN_STRINGS = {
   loginFailed: "Access Denied. Invalid security key.",
   consoleHeading: "ADMIN PANEL",
   tabPosts: "Archives",
+  tabProjects: "Projects",
   tabMessages: "Enquiry",
   newEntry: "New Blog Entry",
+  newProject: "New Project",
   uploadImage: "Upload Reference Image",
   saveButton: "Secure to Cloud",
   discardButton: "Discard Changes",
   selectEntry: "Select an entry to begin editing",
   postSecured: "Entry saved to cloud archives.",
+  projectSecured: "Project saved to cloud archives.",
   msgDeleted: "Message deleted successfully.",
 };

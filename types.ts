@@ -1,4 +1,3 @@
-
 export interface Comment {
   id: string;
   author: string;
@@ -24,8 +23,29 @@ export interface ContactMessage {
   date: string;
 }
 
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  techStack: string;
+  imageUrl: string;
+  link: string;
+}
+
 export interface User {
   name: string;
   role: string;
   bio: string;
+}
+
+export interface Profile {
+  id?: string;
+  name: string;
+  bioParagraph1: string;
+  bioParagraph2: string;
+  photoUrl: string;
+  photoLabel: string;
+  stacks: string;
+  whatIDoHeading: string;
+  whatIDoContent: string;
 }

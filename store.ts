@@ -1,5 +1,5 @@
 
-import { BlogPost, Comment, ContactMessage } from './types';
+import { BlogPost, Comment, ContactMessage, Project, Profile } from './types';
 
 /**
  * Automatically determine the API base URL.
@@ -144,6 +144,96 @@ export const deleteMessage = async (id: string): Promise<boolean> => {
     const messages = JSON.parse(localStorage.getItem('shfn_messages') || '[]');
     const filtered = messages.filter((m: ContactMessage) => m.id !== id);
     localStorage.setItem('shfn_messages', JSON.stringify(filtered));
+    return true;
+  }
+};
+
+/**
+ * Fetches all projects from MongoDB.
+ */
+export const getProjects = async (): Promise<Project[]> => {
+  try {
+    const response = await fetch(`${API_BASE}/projects`);
+    if (!response.ok) throw new Error('API unreachable');
+    const data = await response.json();
+    return data.map((item: any) => ({ ...item, id: item._id || item.id }));
+  } catch (error) {
+    const data = localStorage.getItem('shfn_projects');
+    return data ? JSON.parse(data) : [];
+  }
+};
+
+/**
+ * Saves or updates a project in MongoDB.
+ */
+export const saveProject = async (project: Project): Promise<boolean> => {
+  try {
+    const isNew = project.id.startsWith('temp_');
+    const method = isNew ? 'POST' : 'PUT';
+    const url = isNew ? `${API_BASE}/projects` : `${API_BASE}/projects/${project.id}`;
+
+    const response = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(isNew ? { ...project, id: undefined } : project),
+    });
+    return response.ok;
+  } catch (error) {
+    const projects = JSON.parse(localStorage.getItem('shfn_projects') || '[]');
+    const existingIndex = projects.findIndex((p: Project) => p.id === project.id);
+    if (existingIndex > -1) {
+      projects[existingIndex] = project;
+    } else {
+      projects.unshift(project);
+    }
+    localStorage.setItem('shfn_projects', JSON.stringify(projects));
+    return true;
+  }
+};
+
+/**
+ * Deletes a project from MongoDB.
+ */
+export const deleteProject = async (id: string): Promise<boolean> => {
+  try {
+    const response = await fetch(`${API_BASE}/projects/${id}`, { method: 'DELETE' });
+    return response.ok;
+  } catch (error) {
+    const projects = JSON.parse(localStorage.getItem('shfn_projects') || '[]');
+    const filtered = projects.filter((p: Project) => p.id !== id);
+    localStorage.setItem('shfn_projects', JSON.stringify(filtered));
+    return true;
+  }
+};
+
+/**
+ * Fetches profile from MongoDB.
+ */
+export const getProfile = async (): Promise<Profile | null> => {
+  try {
+    const response = await fetch(`${API_BASE}/profile`);
+    if (!response.ok) throw new Error('API unreachable');
+    const data = await response.json();
+    return data ? { ...data, id: data._id || data.id } : null;
+  } catch (error) {
+    const data = localStorage.getItem('shfn_profile');
+    return data ? JSON.parse(data) : null;
+  }
+};
+
+/**
+ * Saves or updates profile in MongoDB.
+ */
+export const saveProfile = async (profile: Profile): Promise<boolean> => {
+  try {
+    const response = await fetch(`${API_BASE}/profile`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(profile),
+    });
+    return response.ok;
+  } catch (error) {
+    localStorage.setItem('shfn_profile', JSON.stringify(profile));
     return true;
   }
 };

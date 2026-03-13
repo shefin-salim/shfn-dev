@@ -5,7 +5,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import PostDetail from './pages/PostDetail';
-import About from './pages/About';
+import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import CustomCursor from './components/CustomCursor';
@@ -37,7 +37,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<PostDetail />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>

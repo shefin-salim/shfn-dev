@@ -29,11 +29,10 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           {name.split('').map((char, i) => {
             const charProgress = (i + 1) * (100 / name.length);
             return (
-              <span 
-                key={i} 
-                className={`text-2xl font-serif font-black tracking-widest transition-colors duration-300 ${
-                  progress >= charProgress ? 'text-[#00FF66]' : 'text-[#EDEDED]/20'
-                }`}
+              <span
+                key={i}
+                className={`text-2xl font-serif font-black tracking-widest transition-colors duration-300 ${progress >= charProgress ? 'text-[#00FF66]' : 'text-[#EDEDED]/20'
+                  }`}
               >
                 {char}
               </span>
@@ -41,7 +40,7 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
           })}
         </div>
         <div className="h-[2px] w-full bg-[#EDEDED]/10 overflow-hidden">
-          <div 
+          <div
             className="h-full bg-[#00FF66] transition-all duration-100 ease-out shadow-[0_0_15px_#00FF66]"
             style={{ width: `${progress}%` }}
           />
@@ -90,7 +89,7 @@ const Home: React.FC = () => {
             {HOME_STRINGS.badge}
           </span>
         </div>
-        
+
         <h2 className="text-4xl md:text-7xl font-serif leading-tight mb-8 tracking-tighter flex flex-col items-center">
           <div className="mb-1 font-serif italic text-2xl md:text-4xl text-[#EDEDED]">
             {HOME_STRINGS.heroTitlePart1}
@@ -100,29 +99,29 @@ const Home: React.FC = () => {
             <span className="font-serif text-[#EDEDED]">{HOME_STRINGS.heroTitlePart3}</span>
           </div>
         </h2>
-        
+
         <div className="w-24 h-[2px] bg-[#00FF66] mx-auto mb-8 shadow-[0_0_12px_#00FF66]"></div>
-        
+
         <p className="text-lg md:text-xl leading-relaxed font-light max-w-2xl mx-auto mb-12 italic font-serif text-[#EDEDED]">
           {HOME_STRINGS.intro}
         </p>
-        
+
         <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
-          <Link 
-            to="/blog" 
+          <Link
+            to="/blog"
             className="px-12 py-4 bg-[#00FF66] text-[#0E0E0E] text-[10px] font-black tracking-[0.3em] uppercase hover:bg-white transition-all shadow-[0_10px_40px_rgba(0,255,102,0.3)] rounded-sm"
           >
             {HOME_STRINGS.blogButton}
           </Link>
-          <Link 
-            to="/about" 
+          <Link
+            to="/portfolio"
             className="px-12 py-4 border-2 border-[#EDEDED] text-[#EDEDED] text-[10px] font-black tracking-[0.3em] uppercase hover:border-[#00FF66] hover:text-[#00FF66] transition-all rounded-sm backdrop-blur-sm"
           >
             {HOME_STRINGS.aboutButton}
           </Link>
         </div>
 
-        <button 
+        <button
           onClick={scrollToArchives}
           className="group flex flex-col items-center gap-2 mx-auto animate-bounce hover:scale-110 transition-transform"
         >
@@ -133,13 +132,13 @@ const Home: React.FC = () => {
 
       <section id="latest-archives" className="w-full border-y border-[#EDEDED]/20 py-16 bg-[#EDEDED]/5 scroll-mt-20">
         <div className="max-w-5xl mx-auto px-6">
-          <h3 
+          <h3
             onClick={scrollToArchives}
             className="text-[9px] font-black tracking-[0.5em] uppercase mb-12 text-[#00FF66] cursor-none hover:text-[#EDEDED] transition-colors inline-block"
           >
             {HOME_STRINGS.archiveHeading}
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-[#EDEDED]">
             {latestPosts.length > 0 ? latestPosts.map(post => (
               <div key={post.id} className="text-left group relative">
